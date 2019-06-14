@@ -11,12 +11,13 @@ namespace Tarea5_Detalle.Entidades
         public int AnalisisId { get; set; }
         public DateTime Fecha { get; set; }
         public int UsuarioId { get; set; }
-
+        public virtual List<AnalisisDetalles>Detalles { get; set; }
         public Analisis()
         {
             AnalisisId = 0;
             Fecha = DateTime.Now;
             UsuarioId = 0;
+            Detalles = new List<AnalisisDetalles>();
         }
     }
 }
