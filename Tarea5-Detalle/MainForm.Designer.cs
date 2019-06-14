@@ -1,6 +1,6 @@
 ﻿namespace Tarea5_Detalle
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
