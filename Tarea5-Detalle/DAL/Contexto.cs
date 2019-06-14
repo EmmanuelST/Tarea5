@@ -11,10 +11,10 @@ namespace Tarea5_Detalle.DAL
     class Contexto : DbContext
     {
         public DbSet<Usuarios>Usuario { get; set; }
-        public DbSet<Analisis>Analisi { get; set; }
+        public DbSet<Analisis>Analisis { get; set; }
         public Contexto() : base("Constr")
         {
-
+            \
         }
-    }
+    
 }
