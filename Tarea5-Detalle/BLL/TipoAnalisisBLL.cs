@@ -35,6 +35,29 @@ namespace Tarea5_Detalle.BLL
             return paso;
         }
 
+        public static bool Modificar(TipoAnalisis tipo)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                db.Entry(tipo).State = EntityState.Modified;
+                paso = db.SaveChanges() > 0;
+
+            } catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+
+            return paso;
+        }
+
         public static bool Eliminar(int id)
         {
             bool paso = false;
@@ -99,6 +122,27 @@ namespace Tarea5_Detalle.BLL
             }
 
             return lista;
+        }
+
+        public static bool Duplicado(string descriocion)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                paso = db.TipoAnalisis.Any(p => p.Descripcion == descriocion);
+
+            }catch(Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+            return paso;
         }
     }
 }

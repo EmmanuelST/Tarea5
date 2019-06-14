@@ -24,5 +24,12 @@ namespace Tarea5_Detalle
             rUsuarios.MdiParent = this;
             rUsuarios.Show();
         }
+
+        private void TipoDeAnalisisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rTipoAnalisis rTipo = new rTipoAnalisis();
+            rTipo.MdiParent = this;
+            rTipo.Show();
+        }
     }
 }

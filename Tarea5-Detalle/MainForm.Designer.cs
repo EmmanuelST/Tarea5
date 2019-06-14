@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.registroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDeAnalisisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,8 @@
             // registroToolStripMenuItem
             // 
             this.registroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registrarUsuarioToolStripMenuItem});
+            this.registrarUsuarioToolStripMenuItem,
+            this.tipoDeAnalisisToolStripMenuItem});
             this.registroToolStripMenuItem.Name = "registroToolStripMenuItem";
             this.registroToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.registroToolStripMenuItem.Text = "&Registro";
@@ -58,6 +60,13 @@
             this.registrarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registrarUsuarioToolStripMenuItem.Text = "Registrar &Usuario";
             this.registrarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.RegistrarUsuarioToolStripMenuItem_Click);
+            // 
+            // tipoDeAnalisisToolStripMenuItem
+            // 
+            this.tipoDeAnalisisToolStripMenuItem.Name = "tipoDeAnalisisToolStripMenuItem";
+            this.tipoDeAnalisisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tipoDeAnalisisToolStripMenuItem.Text = "Tipo de &Analisis";
+            this.tipoDeAnalisisToolStripMenuItem.Click += new System.EventHandler(this.TipoDeAnalisisToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -82,6 +91,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem registroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tipoDeAnalisisToolStripMenuItem;
     }
 }
 
