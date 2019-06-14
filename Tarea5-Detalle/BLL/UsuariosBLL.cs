@@ -134,5 +134,27 @@ namespace Tarea5_Detalle.BLL
 
             return Lista;
         }
+
+        public static bool Duplicado(string nick)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                paso = db.Usuario.Any(p => p.Usuario == nick);
+
+            }catch(Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+
+            return paso;
+        }
     }
 }
