@@ -49,13 +49,23 @@ namespace Tarea5_Detalle.UI
                 {
                     UsuariosBLL.Modificar(usuario);
                     MessageBox.Show("Modificado correctamente");
+                    Limpiar();
                 }
                 else
                 {
                     if (IdnumericUpDown.Value == 0)
                     {
-                        UsuariosBLL.Guardar(usuario);
-                        MessageBox.Show("Guardado Correctamente");
+                        if(!UsuariosBLL.Duplicado(UsuariotextBox.Text))
+                        {
+                            UsuariosBLL.Guardar(usuario);
+                            MessageBox.Show("Guardado Correctamente");
+                            Limpiar();
+                        }
+                        else
+                        {
+                            errorProvider.SetError(UsuariotextBox,"Este usuario ya existe");
+                        }
+                        
                     }
                     else
                     {
@@ -65,7 +75,8 @@ namespace Tarea5_Detalle.UI
             }
             catch(Exception)
             {
-                MessageBox.Show("Hubo un error al intentar guardar");
+                throw;
+                //MessageBox.Show("Hubo un error al intentar guardar");
             }
 
         }
@@ -116,6 +127,63 @@ namespace Tarea5_Detalle.UI
             usuarios.FechaIngreso =  FechaIngresodateTimePicker.Value;
 
             return usuarios;
+        }
+
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (UsuariosBLL.Buscar((int)IdnumericUpDown.Value) == null)
+                {
+                    MessageBox.Show("No se puede borrar un usuario que no existe");
+                }
+                else
+                {
+
+                    UsuariosBLL.Eliminar((int)IdnumericUpDown.Value);
+                    MessageBox.Show("Eliminado correctamente");
+                    Limpiar();
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudo eliminar el usuario");
+            }
+            
+        }
+
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            Usuarios usuario;
+            try
+            {
+                usuario = UsuariosBLL.Buscar((int)IdnumericUpDown.Value);
+                if(usuario != null)
+                {
+                    Limpiar();
+                    LLenarCampos(usuario);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontro el usuario");
+                }
+
+            }catch(Exception)
+            {
+                MessageBox.Show("Hubo un error al buscar el usuario");
+            }
+        }
+
+        private void LLenarCampos(Usuarios usuarios)
+        {
+            IdnumericUpDown.Value = usuarios.UsuarioId;
+            NombretextBox.Text = usuarios.Nombre;
+            EmailtextBox.Text = usuarios.Email;
+            UsuariotextBox.Text = usuarios.Usuario;
+            ClavetextBox.Text = usuarios.Clave;
+            FechaIngresodateTimePicker.Value = usuarios.FechaIngreso;
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tarea5_Detalle.UI;
 
 namespace Tarea5_Detalle
 {
@@ -15,6 +16,13 @@ namespace Tarea5_Detalle
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void RegistrarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rUsuarios rUsuarios = new rUsuarios();
+            rUsuarios.MdiParent = this;
+            rUsuarios.Show();
         }
     }
 }
