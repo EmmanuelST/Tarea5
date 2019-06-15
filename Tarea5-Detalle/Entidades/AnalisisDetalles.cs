@@ -14,6 +14,7 @@ namespace Tarea5_Detalle.Entidades
         public int AnalisisDetalleId { get; set; }
         public int AnalisisId { get; set; }
         public int TipoAnalisisId { get; set; }
+        public string Descripcion { get; set; }
         public string Resultado { get; set; }
 
         public AnalisisDetalles()
@@ -21,6 +22,7 @@ namespace Tarea5_Detalle.Entidades
             AnalisisDetalleId = 0;
             AnalisisId = 0;
             TipoAnalisisId = 0;
+            Descripcion = string.Empty;
             Resultado = string.Empty;
         }
     }

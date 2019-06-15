@@ -95,8 +95,9 @@ namespace Tarea5_Detalle.UI
                 this.Detalles = (List<AnalisisDetalles>)DetallesdataGridView.DataSource;
 
             AnalisisDetalles analisis = new AnalisisDetalles()
-            {    AnalisisDetalleId = 0,
-                 AnalisisId = (int)IdnumericUpDown.Value
+            { AnalisisDetalleId = 0,
+                AnalisisId = (int)IdnumericUpDown.Value,
+                Descripcion = TipoAnalisiscomboBox.Text
                 ,TipoAnalisisId = (int)TipoAnalisiscomboBox.SelectedValue,
                 Resultado = ResultadotextBox.Text };
 
@@ -143,8 +144,8 @@ namespace Tarea5_Detalle.UI
             }
             catch(Exception)
             {
-                throw;
-                //MessageBox.Show("Ocurrio un error");
+          
+                MessageBox.Show("Ocurrio un error");
             }
 
         }
