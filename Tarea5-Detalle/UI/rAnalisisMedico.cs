@@ -85,6 +85,12 @@ namespace Tarea5_Detalle.UI
 
         private void AgregarAnalisisbutton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(ResultadotextBox.Text))
+            {
+                errorProvider.SetError(ResultadotextBox, "Este campo no puede estar vacio");
+                return;
+            }
+
             if (DetallesdataGridView.DataSource != null)
                 this.Detalles = (List<AnalisisDetalles>)DetallesdataGridView.DataSource;
 
@@ -117,9 +123,9 @@ namespace Tarea5_Detalle.UI
             {
                 if (AnalisisBLL.Exist((int)IdnumericUpDown.Value))
                 {
-                    /*AnalisisBLL.Modificar(analisis);
+                    AnalisisBLL.Modificar(analisis);
                     MessageBox.Show("Modificado Correctamente");
-                    Limpiar();*/
+                    Limpiar();
                 }
                 else
                 {
@@ -171,11 +177,7 @@ namespace Tarea5_Detalle.UI
             bool paso = true;
             errorProvider.Clear();
 
-            if(string.IsNullOrWhiteSpace(ResultadotextBox.Text))
-            {
-                errorProvider.SetError(ResultadotextBox,"Este campo no puede estar vacio");
-                paso = false;
-            }
+            
 
             if(Detalles.Count == 0)
             {
@@ -205,6 +207,32 @@ namespace Tarea5_Detalle.UI
             {
                 MessageBox.Show("Hubo un error al intetar restaurar");
             }
+        }
+
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            Analisis analisis = new Analisis();
+            analisis = LlenarClase();
+
+            try
+            {
+                if (!AnalisisBLL.Exist(analisis.AnalisisId))
+                {
+                    MessageBox.Show("No se puede eliminar por que no existe");
+                }
+                else
+                {
+
+                    AnalisisBLL.Eliminar(analisis.AnalisisId);
+                    MessageBox.Show("Eliminado correctamente");
+                    Limpiar();
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Hubo un error al intentar eliminar");
+            }
+   
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -35,6 +36,35 @@ namespace Tarea5_Detalle.BLL
 
 
             return Lista;
+        }
+
+        public static bool Eliminar(List<AnalisisDetalles> lista)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                foreach(var obj in lista)
+                {
+                    db.Entry(obj).State = EntityState.Deleted;
+                }
+
+                paso = db.SaveChanges() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+
+
+
+            return paso;
         }
     }
 }

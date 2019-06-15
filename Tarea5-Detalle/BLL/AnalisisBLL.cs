@@ -39,13 +39,25 @@ namespace Tarea5_Detalle.BLL
         {
             bool paso = false;
             Contexto db = new Contexto();
+            //List<AnalisisDetalles> lista = new List<AnalisisDetalles>();
+           
 
             try
             {
-                db.Entry(analisis).State = EntityState.Modified;
-                paso = db.SaveChanges() > 0;
+               /* var anterior = AnalisisBLL.Buscar(analisis.AnalisisId);
+                foreach (var item in analisis.Detalles)
+                {
+                    if (!anterior.Detalles.Exists(d => d.AnalisisDetalleId == item.AnalisisDetalleId))
+                        lista.Add(item);
+                }
 
-            }catch(Exception)
+                AnalisisDetallesBLL.Eliminar(lista);*/
+
+                db.Entry(analisis).State = EntityState.Modified;
+                paso = (db.SaveChanges() > 0);
+
+            }
+            catch(Exception)
             {
                 throw; 
             }
