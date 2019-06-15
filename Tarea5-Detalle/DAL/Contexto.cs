@@ -13,6 +13,7 @@ namespace Tarea5_Detalle.DAL
         public DbSet<Usuarios> Usuario { get; set; }
         public DbSet<Analisis> Analisis { get; set; }
         public DbSet<TipoAnalisis> TipoAnalisis { get; set; }
+        public DbSet<AnalisisDetalles>AnalisisDetalles { get; set; }
         public Contexto() : base("Constr")
         {
 

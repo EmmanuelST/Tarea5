@@ -59,13 +59,17 @@ namespace Tarea5_Detalle.BLL
 
         public static Analisis Buscar(int id)
         {
-            Analisis analisis;
+            Analisis analisis = new Analisis();
             Contexto db = new Contexto();
 
             try
             {
                 analisis = db.Analisis.Find(id);
-                analisis.Detalles.Count();
+                if(analisis != null)
+                 analisis.Detalles = AnalisisDetallesBLL.GetList(p=>p.AnalisisId == analisis.AnalisisId);
+                
+                //if(analisis != null)
+                
 
             }catch(Exception)
             {
@@ -100,6 +104,29 @@ namespace Tarea5_Detalle.BLL
                 db.Dispose();
             }
 
+
+            return paso;
+        }
+
+        public static bool Exist(int id)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+
+            try
+            {
+                if (db.Analisis.Find(id) != null)
+                    paso = true;
+              
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                db.Dispose();
+            }
 
             return paso;
         }

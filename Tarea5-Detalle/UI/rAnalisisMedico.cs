@@ -85,8 +85,14 @@ namespace Tarea5_Detalle.UI
 
         private void AgregarAnalisisbutton_Click(object sender, EventArgs e)
         {
+            if (DetallesdataGridView.DataSource != null)
+                this.Detalles = (List<AnalisisDetalles>)DetallesdataGridView.DataSource;
+
             AnalisisDetalles analisis = new AnalisisDetalles()
-            {TipoAnalisisId = (int)TipoAnalisiscomboBox.SelectedValue,Resultado = ResultadotextBox.Text };
+            {    AnalisisDetalleId = 0,
+                 AnalisisId = (int)IdnumericUpDown.Value
+                ,TipoAnalisisId = (int)TipoAnalisiscomboBox.SelectedValue,
+                Resultado = ResultadotextBox.Text };
 
             Detalles.Add(analisis);
             CargarGrip();
@@ -109,11 +115,11 @@ namespace Tarea5_Detalle.UI
 
             try
             {
-                if (AnalisisBLL.Buscar((int)IdnumericUpDown.Value) != null)
+                if (AnalisisBLL.Exist((int)IdnumericUpDown.Value))
                 {
-                    AnalisisBLL.Modificar(analisis);
+                    /*AnalisisBLL.Modificar(analisis);
                     MessageBox.Show("Modificado Correctamente");
-                    Limpiar();
+                    Limpiar();*/
                 }
                 else
                 {
@@ -131,7 +137,8 @@ namespace Tarea5_Detalle.UI
             }
             catch(Exception)
             {
-                MessageBox.Show("Ocurrio un error");
+                throw;
+                //MessageBox.Show("Ocurrio un error");
             }
 
         }
@@ -142,8 +149,7 @@ namespace Tarea5_Detalle.UI
             IdnumericUpDown.Value = analisis.AnalisisId;
             FechadateTimePicker.Value = analisis.Fecha;
             UsuariocomboBox.SelectedValue = analisis.UsuarioId;
-            Detalles = new List<AnalisisDetalles>();
-            Detalles = analisis.Detalles;
+            this.Detalles = analisis.Detalles;
             CargarGrip();
 
         }
@@ -155,7 +161,7 @@ namespace Tarea5_Detalle.UI
             analisis.AnalisisId = (int)IdnumericUpDown.Value;
             analisis.Fecha = FechadateTimePicker.Value;
             analisis.UsuarioId = (int)UsuariocomboBox.SelectedValue;
-            analisis.Detalles = Detalles;
+            analisis.Detalles = this.Detalles;
 
             return analisis;
         }
@@ -181,7 +187,24 @@ namespace Tarea5_Detalle.UI
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Analisis analisis;
+                analisis = AnalisisBLL.Buscar((int)IdnumericUpDown.Value);
+                if(analisis != null)
+                {
+                    Limpiar();
+                    LlenarCampos(analisis);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontro el analisis");
+                }
 
+            }catch(Exception)
+            {
+                MessageBox.Show("Hubo un error al intetar restaurar");
+            }
         }
     }
 }
