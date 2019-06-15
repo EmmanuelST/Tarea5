@@ -69,6 +69,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\rAnalisisMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\rAnalisisMedico.Designer.cs">
+      <DependentUpon>rAnalisisMedico.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\rTipoAnalisis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\rAnalisisMedico.resx">
+      <DependentUpon>rAnalisisMedico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\rTipoAnalisis.resx">
       <DependentUpon>rTipoAnalisis.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +134,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
