@@ -65,6 +65,7 @@ namespace Tarea5_Detalle.BLL
             try
             {
                 analisis = db.Analisis.Find(id);
+                analisis.Detalles.Count();
 
             }catch(Exception)
             {

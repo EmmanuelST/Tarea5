@@ -28,30 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rAnalisisMedico));
             this.label1 = new System.Windows.Forms.Label();
             this.IdnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.RemoverFilabutton = new System.Windows.Forms.Button();
+            this.DetallesdataGridView = new System.Windows.Forms.DataGridView();
+            this.AgregarAnalisisbutton = new System.Windows.Forms.Button();
             this.ResultadotextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TipoAnalisiscomboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.DetallesdataGridView = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RemoverFilabutton = new System.Windows.Forms.Button();
-            this.AgregarAnalisisbutton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.UsuariocomboBox = new System.Windows.Forms.ComboBox();
             this.Nuevobutton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Guardarbutton = new System.Windows.Forms.Button();
+            this.Eliminarbutton = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DetallesdataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -99,6 +103,7 @@
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // groupBox1
             // 
@@ -115,6 +120,44 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar Analisis";
+            // 
+            // RemoverFilabutton
+            // 
+            this.RemoverFilabutton.Image = global::Tarea5_Detalle.Properties.Resources.remover;
+            this.RemoverFilabutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RemoverFilabutton.Location = new System.Drawing.Point(9, 242);
+            this.RemoverFilabutton.Name = "RemoverFilabutton";
+            this.RemoverFilabutton.Size = new System.Drawing.Size(110, 35);
+            this.RemoverFilabutton.TabIndex = 15;
+            this.RemoverFilabutton.Text = "Remover Fila";
+            this.RemoverFilabutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.RemoverFilabutton.UseVisualStyleBackColor = true;
+            this.RemoverFilabutton.Click += new System.EventHandler(this.RemoverFilabutton_Click);
+            // 
+            // DetallesdataGridView
+            // 
+            this.DetallesdataGridView.AllowUserToAddRows = false;
+            this.DetallesdataGridView.AllowUserToDeleteRows = false;
+            this.DetallesdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DetallesdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.DetallesdataGridView.Location = new System.Drawing.Point(9, 69);
+            this.DetallesdataGridView.Name = "DetallesdataGridView";
+            this.DetallesdataGridView.ReadOnly = true;
+            this.DetallesdataGridView.Size = new System.Drawing.Size(365, 166);
+            this.DetallesdataGridView.TabIndex = 14;
+            // 
+            // AgregarAnalisisbutton
+            // 
+            this.AgregarAnalisisbutton.Image = global::Tarea5_Detalle.Properties.Resources.add;
+            this.AgregarAnalisisbutton.Location = new System.Drawing.Point(339, 24);
+            this.AgregarAnalisisbutton.Name = "AgregarAnalisisbutton";
+            this.AgregarAnalisisbutton.Size = new System.Drawing.Size(35, 36);
+            this.AgregarAnalisisbutton.TabIndex = 13;
+            this.AgregarAnalisisbutton.UseVisualStyleBackColor = true;
+            this.AgregarAnalisisbutton.Click += new System.EventHandler(this.AgregarAnalisisbutton_Click);
             // 
             // ResultadotextBox
             // 
@@ -149,62 +192,6 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Tipo de Analisis:";
             // 
-            // DetallesdataGridView
-            // 
-            this.DetallesdataGridView.AllowUserToAddRows = false;
-            this.DetallesdataGridView.AllowUserToDeleteRows = false;
-            this.DetallesdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DetallesdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.DetallesdataGridView.Location = new System.Drawing.Point(9, 69);
-            this.DetallesdataGridView.Name = "DetallesdataGridView";
-            this.DetallesdataGridView.ReadOnly = true;
-            this.DetallesdataGridView.Size = new System.Drawing.Size(365, 166);
-            this.DetallesdataGridView.TabIndex = 14;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tipo de analisis";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Resultado";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // RemoverFilabutton
-            // 
-            this.RemoverFilabutton.Image = global::Tarea5_Detalle.Properties.Resources.remover;
-            this.RemoverFilabutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RemoverFilabutton.Location = new System.Drawing.Point(9, 242);
-            this.RemoverFilabutton.Name = "RemoverFilabutton";
-            this.RemoverFilabutton.Size = new System.Drawing.Size(110, 35);
-            this.RemoverFilabutton.TabIndex = 15;
-            this.RemoverFilabutton.Text = "Remover Fila";
-            this.RemoverFilabutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.RemoverFilabutton.UseVisualStyleBackColor = true;
-            // 
-            // AgregarAnalisisbutton
-            // 
-            this.AgregarAnalisisbutton.Image = global::Tarea5_Detalle.Properties.Resources.add;
-            this.AgregarAnalisisbutton.Location = new System.Drawing.Point(339, 24);
-            this.AgregarAnalisisbutton.Name = "AgregarAnalisisbutton";
-            this.AgregarAnalisisbutton.Size = new System.Drawing.Size(35, 36);
-            this.AgregarAnalisisbutton.TabIndex = 13;
-            this.AgregarAnalisisbutton.UseVisualStyleBackColor = true;
-            this.AgregarAnalisisbutton.Click += new System.EventHandler(this.AgregarAnalisisbutton_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -235,37 +222,65 @@
             this.Nuevobutton.UseVisualStyleBackColor = true;
             this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
-            // button2
+            // Guardarbutton
             // 
-            this.button2.Image = global::Tarea5_Detalle.Properties.Resources.guardar;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(172, 408);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 52);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Guardar";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Image = global::Tarea5_Detalle.Properties.Resources.guardar;
+            this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Guardarbutton.Location = new System.Drawing.Point(172, 408);
+            this.Guardarbutton.Name = "Guardarbutton";
+            this.Guardarbutton.Size = new System.Drawing.Size(75, 52);
+            this.Guardarbutton.TabIndex = 14;
+            this.Guardarbutton.Text = "Guardar";
+            this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
-            // button3
+            // Eliminarbutton
             // 
-            this.button3.Image = global::Tarea5_Detalle.Properties.Resources.eliminar;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(321, 408);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 52);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Eliminar";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Image = global::Tarea5_Detalle.Properties.Resources.eliminar;
+            this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Eliminarbutton.Location = new System.Drawing.Point(321, 408);
+            this.Eliminarbutton.Name = "Eliminarbutton";
+            this.Eliminarbutton.Size = new System.Drawing.Size(75, 52);
+            this.Eliminarbutton.TabIndex = 15;
+            this.Eliminarbutton.Text = "Eliminar";
+            this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Eliminarbutton.UseVisualStyleBackColor = true;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "AnalisisDetalleId";
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "TipoAnalisisId";
+            this.Column2.HeaderText = "Tipo";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "Resultado";
+            this.Column3.HeaderText = "Resultado";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // rAnalisisMedico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 480);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Eliminarbutton);
+            this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
             this.Controls.Add(this.UsuariocomboBox);
             this.Controls.Add(this.label5);
@@ -281,6 +296,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DetallesdataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,13 +317,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button RemoverFilabutton;
         private System.Windows.Forms.DataGridView DetallesdataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox UsuariocomboBox;
         private System.Windows.Forms.Button Nuevobutton;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Guardarbutton;
+        private System.Windows.Forms.Button Eliminarbutton;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

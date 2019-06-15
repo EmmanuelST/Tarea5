@@ -12,14 +12,14 @@ namespace Tarea5_Detalle.Entidades
         [Key]
         public int AnalisisDetalleId { get; set; }
         public int AnalisisId { get; set; }
-        public int TipoId { get; set; }
+        public int TipoAnalisisId { get; set; }
         public string Resultado { get; set; }
 
         public AnalisisDetalles()
         {
             AnalisisDetalleId = 0;
             AnalisisId = 0;
-            TipoId = 0;
+            TipoAnalisisId = 0;
             Resultado = string.Empty;
         }
     }

@@ -31,5 +31,12 @@ namespace Tarea5_Detalle
             rTipo.MdiParent = this;
             rTipo.Show();
         }
+
+        private void RegistroDeAnalisisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rAnalisisMedico rAnalisis = new rAnalisisMedico();
+            rAnalisis.MdiParent = this;
+            rAnalisis.Show();
+        }
     }
 }
