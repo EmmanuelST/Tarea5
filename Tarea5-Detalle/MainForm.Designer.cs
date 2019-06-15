@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.registroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,21 +60,21 @@
             // registrarUsuarioToolStripMenuItem
             // 
             this.registrarUsuarioToolStripMenuItem.Name = "registrarUsuarioToolStripMenuItem";
-            this.registrarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registrarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.registrarUsuarioToolStripMenuItem.Text = "Registrar &Usuario";
             this.registrarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.RegistrarUsuarioToolStripMenuItem_Click);
             // 
             // tipoDeAnalisisToolStripMenuItem
             // 
             this.tipoDeAnalisisToolStripMenuItem.Name = "tipoDeAnalisisToolStripMenuItem";
-            this.tipoDeAnalisisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tipoDeAnalisisToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.tipoDeAnalisisToolStripMenuItem.Text = "Tipo de &Analisis";
             this.tipoDeAnalisisToolStripMenuItem.Click += new System.EventHandler(this.TipoDeAnalisisToolStripMenuItem_Click);
             // 
             // registroDeAnalisisToolStripMenuItem
             // 
             this.registroDeAnalisisToolStripMenuItem.Name = "registroDeAnalisisToolStripMenuItem";
-            this.registroDeAnalisisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registroDeAnalisisToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.registroDeAnalisisToolStripMenuItem.Text = "&Registro de Analisis";
             this.registroDeAnalisisToolStripMenuItem.Click += new System.EventHandler(this.RegistroDeAnalisisToolStripMenuItem_Click);
             // 
@@ -83,6 +84,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 484);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
