@@ -262,8 +262,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.IdnumericUpDown);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "rAnalisisMedico";
-            this.Text = "rAnalisisMedico";
+            this.Text = "Registro de Analisis Medico";
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

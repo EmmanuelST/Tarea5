@@ -145,8 +145,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.IdnumericUpDown);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "rTipoAnalisis";
-            this.Text = "rTipoAnalisis";
+            this.Text = "Tipos de Analisis";
             ((System.ComponentModel.ISupportInitialize)(this.IdnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
